@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/images/logos.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.mako116.bumpa"
     },
     "web": {
       "output": "static",
@@ -43,6 +44,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "c5739514-a0d9-41fd-bef2-5b84e014206b"
+      }
     }
   }
 }
