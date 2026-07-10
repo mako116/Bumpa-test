@@ -1,24 +1,19 @@
-import React, { useEffect } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  View,
-  RefreshControl,
-} from 'react-native';
-import AppLayout from '@/components/layout/AppLayout';
-import { HeroSection } from '@/components/home/HeroSection';
-import { CategorySection } from '@/components/home/CategorySection';
-import { TrendingBooks } from '@/components/home/TrendingBooks';
-import { BookCard } from '@/components/books/BookCard';
-import { ThemedText } from '@/components/themed-text';
-import { ErrorState } from '@/components/ui/ErrorState';
-import { HomeShimmer } from '@/components/ui/PageShimmers';
-import { useBookStore } from '@/lib/stores/book.store';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-import { Colors, Spacing } from '@/constants/theme';
+import React, { useEffect } from "react";
+import { ScrollView, StyleSheet, View, RefreshControl } from "react-native";
+import AppLayout from "@/components/layout/AppLayout";
+import { HeroSection } from "@/components/home/HeroSection";
+import { CategorySection } from "@/components/home/CategorySection";
+import { TrendingBooks } from "@/components/home/TrendingBooks";
+import { BookCard } from "@/components/books/BookCard";
+import { ThemedText } from "@/components/themed-text";
+import { ErrorState } from "@/components/ui/ErrorState";
+import { HomeShimmer } from "@/components/ui/PageShimmers";
+import { useBookStore } from "@/lib/stores/book.store";
+import { useColorScheme } from "@/hooks/use-color-scheme";
+import { Colors, Spacing } from "@/constants/theme";
 
 export default function HomeScreen() {
-  const colorScheme = useColorScheme() ?? 'light';
+  const colorScheme = useColorScheme() ?? "light";
   const colors = Colors[colorScheme];
 
   const {
@@ -65,18 +60,27 @@ export default function HomeScreen() {
         style={styles.container}
         showsVerticalScrollIndicator={false}
         refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={colors.primary} />
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={handleRefresh}
+            tintColor={colors.primary}
+          />
         }
       >
         <HeroSection featuredBook={featuredBook} />
 
-        <CategorySection selectedGenre={selectedGenre} onSelectGenre={setHomeSelectedGenre} />
+        <CategorySection
+          selectedGenre={selectedGenre}
+          onSelectGenre={setHomeSelectedGenre}
+        />
 
         <TrendingBooks books={trendingBooks} />
 
         <View style={styles.gridSection}>
           <ThemedText style={styles.sectionTitle} type="defaultSemiBold">
-            {selectedGenre === 'All' ? 'New Arrivals' : `${selectedGenre} Books`}
+            {selectedGenre === "All"
+              ? "New Arrivals"
+              : `${selectedGenre} Books`}
           </ThemedText>
 
           <View style={styles.grid}>
@@ -98,8 +102,8 @@ const styles = StyleSheet.create({
   },
   center: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   gridSection: {
     paddingVertical: Spacing.md,
@@ -110,11 +114,11 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.sm,
   },
   grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
     paddingHorizontal: Spacing.sm,
   },
   gridItem: {
-    width: '50%',
+    width: "50%",
   },
 });
