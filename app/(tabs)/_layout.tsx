@@ -120,7 +120,7 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   iconContainer: {
     position: "relative",
-    width: 28,
+    width: 36,
     height: 28,
     alignItems: "center",
     justifyContent: "center",

@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   listContent: {
     padding: Spacing.sm,
-    paddingBottom: Spacing['5xl'],
+    paddingBottom: 110,
   },
   footer: {
     padding: Spacing.md,

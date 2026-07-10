@@ -11,6 +11,7 @@ import { HomeShimmer } from "@/components/ui/PageShimmers";
 import { useBookStore } from "@/lib/stores/book.store";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { Colors, Spacing } from "@/constants/theme";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 export default function HomeScreen() {
   const colorScheme = useColorScheme() ?? "light";
@@ -110,13 +111,12 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 16,
-    paddingHorizontal: Spacing.lg,
+    paddingHorizontal: wp(2),
     marginBottom: Spacing.sm,
   },
   grid: {
     flexDirection: "row",
     flexWrap: "wrap",
-    paddingHorizontal: Spacing.sm,
   },
   gridItem: {
     width: "50%",

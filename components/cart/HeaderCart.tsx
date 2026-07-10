@@ -52,8 +52,10 @@ export function HeaderCart() {
 
 const styles = StyleSheet.create({
   container: {
-    marginRight: Spacing.md,
-    padding: Spacing.xs,
+    marginRight: Spacing.sm,
+    paddingVertical: Spacing.xs,
+    paddingLeft: Spacing.xs,
+    paddingRight: Spacing.md,
     position: "relative",
     justifyContent: "center",
     alignItems: "center",

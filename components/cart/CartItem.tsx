@@ -75,12 +75,11 @@ const styles = StyleSheet.create({
     borderRadius: BorderRadius.lg,
     borderWidth: 1,
     marginBottom: Spacing.md,
-    alignItems: 'center',
   },
   imageContainer: {
-    width: 70,
+    width: 75,
     aspectRatio: 2.3 / 3,
-    borderRadius: BorderRadius.sm,
+    borderRadius: BorderRadius.md,
     overflow: 'hidden',
     backgroundColor: '#eaeaea',
   },
@@ -92,8 +91,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: Spacing.md,
     justifyContent: 'space-between',
-    height: '100%',
-    minHeight: 90,
   },
   header: {
     flexDirection: 'row',
@@ -105,11 +102,11 @@ const styles = StyleSheet.create({
     marginRight: Spacing.sm,
   },
   title: {
-    fontSize: 15,
-    lineHeight: 18,
+    fontSize: 16,
+    lineHeight: 20,
   },
   author: {
-    fontSize: 12,
+    fontSize: 13,
     marginTop: 2,
   },
   removeButton: {

@@ -12,6 +12,6 @@ export function CartBadge() {
 const styles = StyleSheet.create({
   badge: {
     top: -2,
-    right: -6,
+    right: -2,
   },
 });

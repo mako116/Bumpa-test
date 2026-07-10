@@ -1,16 +1,21 @@
-import React from 'react';
-import { StyleSheet, ScrollView, View } from 'react-native';
-import { ThemedText } from '@/components/themed-text';
-import { CategoryPill } from '@/components/books/CategoryPill';
-import { Genre, GENRES } from '@/types';
-import { Spacing } from '@/constants/theme';
-
+import React from "react";
+import { StyleSheet, ScrollView, View } from "react-native";
+import { ThemedText } from "@/components/themed-text";
+import { CategoryPill } from "@/components/books/CategoryPill";
+import { Genre, GENRES } from "@/types";
+import { Spacing } from "@/constants/theme";
+import {
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 interface CategorySectionProps {
   selectedGenre: Genre;
   onSelectGenre: (genre: Genre) => void;
 }
 
-export function CategorySection({ selectedGenre, onSelectGenre }: CategorySectionProps) {
+export function CategorySection({
+  selectedGenre,
+  onSelectGenre,
+}: CategorySectionProps) {
   return (
     <View style={styles.container}>
       <ThemedText style={styles.title} type="defaultSemiBold">
@@ -41,10 +46,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    paddingHorizontal: Spacing.lg,
+    paddingHorizontal: wp(2),
+
     marginBottom: Spacing.sm,
   },
   scrollContent: {
-    paddingHorizontal: Spacing.lg,
+    paddingHorizontal: wp(2),
   },
 });

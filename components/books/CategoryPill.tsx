@@ -1,15 +1,15 @@
-import React from 'react';
-import { StyleSheet, Pressable } from 'react-native';
+import React from "react";
+import { StyleSheet, Pressable } from "react-native";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
-} from 'react-native-reanimated';
-import * as Haptics from 'expo-haptics';
-import { ThemedText } from '@/components/themed-text';
-import { Genre } from '@/types';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-import { Colors, Spacing, BorderRadius, Typography } from '@/constants/theme';
+} from "react-native-reanimated";
+import * as Haptics from "expo-haptics";
+import { ThemedText } from "@/components/themed-text";
+import { Genre } from "@/types";
+import { useColorScheme } from "@/hooks/use-color-scheme";
+import { Colors, Spacing, BorderRadius, Typography } from "@/constants/theme";
 
 interface CategoryPillProps {
   genre: Genre;
@@ -17,8 +17,12 @@ interface CategoryPillProps {
   onPress: (genre: Genre) => void;
 }
 
-export function CategoryPill({ genre, isSelected, onPress }: CategoryPillProps) {
-  const colorScheme = useColorScheme() ?? 'light';
+export function CategoryPill({
+  genre,
+  isSelected,
+  onPress,
+}: CategoryPillProps) {
+  const colorScheme = useColorScheme() ?? "light";
   const colors = Colors[colorScheme];
 
   const scale = useSharedValue(1);
@@ -58,8 +62,8 @@ export function CategoryPill({ genre, isSelected, onPress }: CategoryPillProps) 
           style={[
             styles.text,
             {
-              color: isSelected ? '#fff' : colors.textSecondary,
-              fontWeight: isSelected ? '600' : '400',
+              color: isSelected ? "#fff" : colors.textSecondary,
+              fontWeight: isSelected ? "600" : "400",
             },
           ]}
         >
@@ -77,8 +81,8 @@ const styles = StyleSheet.create({
     borderRadius: BorderRadius.full,
     borderWidth: 1.5,
     marginRight: Spacing.sm,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
     ...Typography.smallBold,

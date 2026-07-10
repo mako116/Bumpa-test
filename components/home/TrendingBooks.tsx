@@ -1,10 +1,10 @@
-import React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
-import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
-import { ThemedText } from '@/components/themed-text';
-import { BookCard } from '@/components/books/BookCard';
-import { Book } from '@/types';
-import { Spacing } from '@/constants/theme';
+import React from "react";
+import { StyleSheet, View, ScrollView } from "react-native";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { ThemedText } from "@/components/themed-text";
+import { BookCard } from "@/components/books/BookCard";
+import { Book } from "@/types";
+import { Spacing } from "@/constants/theme";
 
 interface TrendingBooksProps {
   books: Book[];
@@ -40,13 +40,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    paddingHorizontal: Spacing.lg,
+    paddingHorizontal: wp(2),
+
     marginBottom: Spacing.xs,
   },
   scrollContent: {
-    paddingHorizontal: Spacing.md,
+    paddingHorizontal: wp(0.5),
   },
   cardContainer: {
-    width: wp(38),
+    width: wp(45),
   },
 });

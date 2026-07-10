@@ -156,13 +156,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   heroWrapper: {
-    paddingHorizontal: Spacing.lg,
+    paddingHorizontal: wp(2),
+
     paddingTop: Spacing.sm,
     paddingBottom: Spacing.md,
   },
   horizontalRow: {
     flexDirection: "row",
-    paddingHorizontal: Spacing.lg,
+    paddingHorizontal: wp(2),
+
     marginVertical: Spacing.md,
     alignItems: "center",
   },
@@ -171,7 +173,8 @@ const styles = StyleSheet.create({
     marginRight: Spacing.md,
   },
   sectionTitleWrapper: {
-    paddingHorizontal: Spacing.lg,
+    paddingHorizontal: wp(2),
+
     marginVertical: Spacing.sm,
   },
   grid: {
