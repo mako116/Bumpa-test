@@ -1,41 +1,229 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
+ 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+ const palette = {
+   primary50: '#FFF3E6',
+  primary100: '#FFE0B2',
+  primary200: '#FFCC80',
+  primary300: '#FFB74D',
+  primary400: '#FFA726',
+  primary500: '#F28F3B',
+  primary600: '#E67E22',
+  primary700: '#C8553D',
+  primary800: '#A93226',
+  primary900: '#7B241C',
+
+   secondary50: '#E8EDF2',
+  secondary100: '#C5D1DE',
+  secondary200: '#9FB3C8',
+  secondary300: '#7A95B2',
+  secondary400: '#5E7FA2',
+  secondary500: '#436992',
+  secondary600: '#3B5E85',
+  secondary700: '#2C4A6B',
+  secondary800: '#1B2838',
+  secondary900: '#0F1923',
+
+   accent50: '#FFF8E1',
+  accent100: '#FFECB3',
+  accent200: '#FFE082',
+  accent300: '#FFD54F',
+  accent400: '#FFCA28',
+  accent500: '#D4A843',
+  accent600: '#C49B38',
+  accent700: '#A67C2B',
+  accent800: '#8B6914',
+  accent900: '#5D4500',
+
+   neutral0: '#FFFFFF',
+  neutral50: '#FAFAF9',
+  neutral100: '#F5F3F0',
+  neutral200: '#EBE7E2',
+  neutral300: '#D6D0C8',
+  neutral400: '#B8AFA5',
+  neutral500: '#8E8478',
+  neutral600: '#6B6259',
+  neutral700: '#4A443E',
+  neutral800: '#2D2926',
+  neutral900: '#1A1715',
+
+   success: '#27AE60',
+  successLight: '#E8F8F0',
+  warning: '#F39C12',
+  warningLight: '#FEF5E7',
+  error: '#E74C3C',
+  errorLight: '#FDEDEC',
+  info: '#3498DB',
+  infoLight: '#EBF5FB',
+};
 
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    text: palette.neutral900,
+    textSecondary: palette.neutral600,
+    textTertiary: palette.neutral500,
+    background: palette.neutral50,
+    backgroundSecondary: palette.neutral100,
+    surface: palette.neutral0,
+    surfaceElevated: palette.neutral0,
+    border: palette.neutral200,
+    borderLight: palette.neutral100,
+    tint: palette.primary600,
+    primary: palette.primary600,
+    primaryLight: palette.primary100,
+    secondary: palette.secondary700,
+    secondaryLight: palette.secondary100,
+    accent: palette.accent500,
+    accentLight: palette.accent100,
+    icon: palette.neutral500,
+    tabIconDefault: palette.neutral400,
+    tabIconSelected: palette.primary600,
+    tabBarBackground: 'rgba(255, 255, 255, 0.95)',
+    success: palette.success,
+    successLight: palette.successLight,
+    warning: palette.warning,
+    warningLight: palette.warningLight,
+    error: palette.error,
+    errorLight: palette.errorLight,
+    info: palette.info,
+    infoLight: palette.infoLight,
+    skeleton: palette.neutral200,
+    skeletonHighlight: palette.neutral100,
+    overlay: 'rgba(0, 0, 0, 0.5)',
+    cardShadow: 'rgba(0, 0, 0, 0.08)',
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    text: '#F5F3F0',
+    textSecondary: '#B8AFA5',
+    textTertiary: '#8E8478',
+    background: '#0F1117',
+    backgroundSecondary: '#1A1D26',
+    surface: '#1E2130',
+    surfaceElevated: '#252A3A',
+    border: '#2D3348',
+    borderLight: '#252A3A',
+    tint: palette.primary400,
+    primary: palette.primary400,
+    primaryLight: 'rgba(242, 143, 59, 0.15)',
+    secondary: palette.secondary300,
+    secondaryLight: 'rgba(122, 149, 178, 0.15)',
+    accent: palette.accent400,
+    accentLight: 'rgba(212, 168, 67, 0.15)',
+    icon: '#8E8478',
+    tabIconDefault: '#6B6259',
+    tabIconSelected: palette.primary400,
+    tabBarBackground: 'rgba(15, 17, 23, 0.95)',
+    success: '#2ECC71',
+    successLight: 'rgba(46, 204, 113, 0.15)',
+    warning: '#F1C40F',
+    warningLight: 'rgba(241, 196, 15, 0.15)',
+    error: '#E74C3C',
+    errorLight: 'rgba(231, 76, 60, 0.15)',
+    info: '#5DADE2',
+    infoLight: 'rgba(93, 173, 226, 0.15)',
+    skeleton: '#252A3A',
+    skeletonHighlight: '#2D3348',
+    overlay: 'rgba(0, 0, 0, 0.7)',
+    cardShadow: 'rgba(0, 0, 0, 0.3)',
   },
 };
 
-export const Fonts = Platform.select({
+ export const Spacing = {
+  xxs: 2,
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 20,
+  '2xl': 24,
+  '3xl': 32,
+  '4xl': 40,
+  '5xl': 48,
+  '6xl': 64,
+} as const;
+
+ export const BorderRadius = {
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 20,
+  '2xl': 24,
+  full: 9999,
+} as const;
+
+ export const Shadows = {
+  sm: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+    elevation: 1,
+  },
+  md: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  lg: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 16,
+    elevation: 6,
+  },
+  xl: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.15,
+    shadowRadius: 24,
+    elevation: 10,
+  },
+} as const;
+
+ export const Typography = {
+  h1: { fontSize: 32, lineHeight: 40, fontWeight: '700' as const },
+  h2: { fontSize: 26, lineHeight: 34, fontWeight: '700' as const },
+  h3: { fontSize: 22, lineHeight: 28, fontWeight: '600' as const },
+  h4: { fontSize: 18, lineHeight: 24, fontWeight: '600' as const },
+  body: { fontSize: 16, lineHeight: 24, fontWeight: '400' as const },
+  bodyBold: { fontSize: 16, lineHeight: 24, fontWeight: '600' as const },
+  caption: { fontSize: 14, lineHeight: 20, fontWeight: '400' as const },
+  captionBold: { fontSize: 14, lineHeight: 20, fontWeight: '600' as const },
+  small: { fontSize: 12, lineHeight: 16, fontWeight: '400' as const },
+  smallBold: { fontSize: 12, lineHeight: 16, fontWeight: '600' as const },
+  price: { fontSize: 20, lineHeight: 28, fontWeight: '700' as const },
+  priceSmall: { fontSize: 16, lineHeight: 22, fontWeight: '700' as const },
+} as const;
+
+ export const AnimationConfig = {
+  fast: 150,
+  normal: 300,
+  slow: 500,
+  spring: {
+    damping: 15,
+    stiffness: 150,
+    mass: 0.8,
+  },
+  springBouncy: {
+    damping: 10,
+    stiffness: 180,
+    mass: 0.6,
+  },
+  springGentle: {
+    damping: 20,
+    stiffness: 120,
+    mass: 1,
+  },
+} as const;
+
+ export const Fonts = Platform.select({
   ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
     sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
     serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
     rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
     mono: 'ui-monospace',
   },
   default: {

@@ -1,50 +1,106 @@
-# Welcome to your Expo app 👋
+# The Book Nook App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+The Book Nook is a premium React Native bookstore application built on Expo SDK 54. It features a responsive layout system, global Zustand stores with AsyncStorage persistence, smooth Reanimated micro-animations, and a highly structured codebase.
 
-## Get started
+---
 
-1. Install dependencies
+## Features
 
+- **Home Feed**: Shows a featured hero book, category selection pills, a horizontal trending slider, and a grid of new arrivals.
+- **Browse & Search**: Features high-performance debounced queries, genre filtering, and infinite scroll pagination to prevent layout shift glitches.
+- **Book Details**: Displays detailed book metadata, customer reviews, stock availability, and a haptic add-to-cart "fly" animation.
+- **Zustand State Management**: Centralized stores manage the catalog cache and cart operations. Cart items persist automatically in local storage.
+- **Responsive Layout Wrapper**: An `AppLayout` container scales component paddings, margins, and status bar offsets across various iOS and Android screen sizes.
+- **Custom Shimmer Loaders**: Sliding linear-gradient skeleton layouts simulate actual page structures during load times instead of generic spinners.
+- **Secure Checkout Form**: Real-time form validators, payment method toggles, and a successful order summary screen accompanied by confetti and success haptics.
+
+---
+
+## Project Structure
+
+```
+bumpa/
+├── app/                  # Expo Router file-based routing
+│   ├── _layout.tsx       # Root layout configuration
+│   ├── (tabs)/           # Tab navigation layout (Home, Search, Cart)
+│   │   ├── _layout.tsx   # Custom TabBar configurations & Left/Right header hooks
+│   │   ├── index.tsx     # Home Screen
+│   │   ├── search.tsx    # Browse & Search Screen
+│   │   └── cart.tsx      # Shopping Cart Screen
+│   ├── book/
+│   │   └── [id].tsx      # Dynamic Book Details Screen
+│   └── checkout.tsx      # Order Checkout Screen
+│
+├── components/           # Flat, modular UI components grouped by feature
+│   ├── books/            # Book cards, rating stars, and reviews
+│   ├── cart/             # Cart badges, quantities, list items, and summaries
+│   ├── checkout/         # Form validation fields and payment methods
+│   ├── home/             # Hero banner, category pills, and trending carousels
+│   ├── layout/           # AppLayout responsive viewport wrapper
+│   └── ui/               # Primitive components (Buttons, Inputs, Shimmers, Skeletons)
+│
+├── hooks/                # Global React hooks connected directly to Zustand stores
+├── lib/                  # Services and global state stores
+│   ├── services/         # bookApi (mock catalog data & live Serper query mapping)
+│   ├── stores/           # Zustand stores (book, cart)
+│   └── mockData.ts       # Database of 50+ books and nested reviews
+│
+├── types/                # Centralized TypeScript type definitions
+└── utils/                # Helper utilities (price formatting, numeric parse helpers)
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+Ensure you have Node.js and the Expo CLI installed.
+
+1. **Navigate to the Project**:
    ```bash
-   npm install
+   cd bumpa
    ```
 
-2. Start the app
+2. **Install Node Modules**:
+   To ensure smooth peer matching on React 19 libraries, run install with the legacy peer flag:
+   ```bash
+   npm install --legacy-peer-deps
+   ```
 
+3. **Start the Metro Bundler**:
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+   Use the terminal prompts to open the app on your preferred platform:
+   - Press `i` for the **iOS Simulator**
+   - Press `a` for the **Android Emulator**
+   - Press `w` for the **Web Browser**
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Unit Testing
 
-## Get a fresh project
+Unit tests are written using **Jest** and **React Native Testing Library**.
 
-When you're ready, run:
-
+To execute the test suite:
 ```bash
-npm run reset-project
+npm test
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Test Coverage:
+- **`AddToCartButton.test.tsx`**: Tests button rendering, press triggers, and cart quantity states.
+- **`CartItem.test.tsx`**: Verifies component updates, deletions, and metadata representations.
+- **`CheckoutForm.test.tsx`**: Tests input validators, invalid email detection, and form dispatch behaviors.
+- **`bookApi.test.ts`**: Asserts request delays, query filters, and pagination slices.
+- **`cartReducer.test.ts`**: Tests the underlying state mutation logs.
+- **`BookPrice.test.tsx`**: Verifies price discounts and current/original values layout behaviors.
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## Architectural Decisions
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- **Zustand State Stores**: Migrated from Context API to Zustand to decouple state mutations from React’s render loops. This simplifies hook structures and avoids redundant re-renders.
+- **Flat Feature Components**: Relocated nested feature component directories into a unified `components/` root directory to maintain a clean codebase footprint.
+- **Hardware-Accelerated Images**: Used `expo-image` cache policies to handle memory/disk image caching and prevent scrolling performance lag.
+- **Input Debouncing**: Search queries use a 300ms debounce loop to avoid triggering concurrent database/API sweeps on every character stroke.
